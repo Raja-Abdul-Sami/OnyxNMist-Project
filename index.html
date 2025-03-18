@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>OnyxNMist | Luxury Perfumes & Premium Fragrances Online Store</title>
+    <meta name="description"
+        content="Discover OnyxNMist's exclusive collection of luxury perfumes and premium fragrances. Free shipping on orders over $50. Shop now for designer scents for men and women.">
+    <meta name="keywords"
+        content="luxury perfumes, designer fragrances, premium scents, women's perfume, men's cologne, boutique perfumery">
+    <meta name="author" content="OnyxNMist">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="OnyxNMist | Luxury Perfumes & Premium Fragrances">
+    <meta property="og:description"
+        content="Shop exclusive luxury perfumes at OnyxNMist. Free shipping on orders over $50. Discover premium designer scents for men and women.">
+    <meta property="og:image" content="https://www.onyxnmist.com/images/og-banner.jpg">
+    <meta property="og:url" content="https://www.onyxnmist.com">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="OnyxNMist | Luxury Perfumes & Premium Fragrances">
+    <meta name="twitter:description"
+        content="Discover premium designer fragrances at OnyxNMist. Shop now for exclusive luxury scents!">
+    <meta name="twitter:image" content="https://www.onyxnmist.com/images/twitter-banner.jpg">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.onyxnmist.com">
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #111, #222);
+            color: white;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(255, 60, 120, 0.8));
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .profile-icon {
+            font-size: 24px;
+            color: white;
+        }
+
+        .profile-icon:hover {
+            color: #ff3c78;
+        }
+
+        nav a:hover {
+            color: #ff3c78;
+            transform: translateY(-3px);
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(17, 17, 17, 0.8), rgba(255, 60, 120, 0.6)), url('https://source.unsplash.com/1600x900/?perfume') no-repeat center center/cover;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+            animation: fadeIn 1.5s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            animation: slideIn 1s ease-out;
+            z-index: 2;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            animation: slideIn 1.5s ease-out;
+            z-index: 2;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #ff3c78, #ff1e5a);
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            animation: bounce 2s infinite;
+            z-index: 2;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 0px 20px rgba(255, 60, 120, 0.8);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .section {
+            padding: 80px 10%;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s, transform 1s;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .review-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+            perspective: 1000px;
+            position: relative;
+        }
+
+        .review-card {
+            width: 300px;
+            height: 150px;
+            background: linear-gradient(135deg, #222, #444);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            position: absolute;
+            backface-visibility: hidden;
+            transform-style: preserve-3d;
+            transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+        }
+
+        .review-card.hide {
+            opacity: 0;
+            transform: rotateY(180deg);
+        }
+
+        .review-card.show {
+            opacity: 1;
+            transform: rotateY(0);
+        }
+
+        .news-section {
+            padding: 80px 10%;
+            background: linear-gradient(135deg, #222, #333);
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
+            margin-top: 20px;
+        }
+
+        .news-section h2 {
+            margin-bottom: 20px;
+            font-size: 28px;
+            animation: fadeIn 1s;
+        }
+
+        .news-item {
+            background: linear-gradient(135deg, #333, #444);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 10px 0;
+            color: white;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .news-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 0px 20px rgba(255, 60, 120, 0.8);
+        }
+
+        /* Footer Styling */
+        footer {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(255, 60, 120, 0.8));
+            padding: 60px 10%;
+            text-align: center;
+            margin-top: 40px;
+            font-size: 14px;
+            color: white;
+            border-top: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            align-items: start;
+        }
+
+        .footer-section {
+            text-align: left;
+            padding: 10px;
+        }
+
+        .footer-section h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #ff3c78;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            position: relative;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: #ff3c78;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            margin-bottom: 12px;
+            display: block;
+            transition: color 0.3s;
+            line-height: 1.6;
+        }
+
+        .footer-section a:hover {
+            color: #ff3c78;
+            transform: translateX(5px);
+        }
+
+        .footer-section i {
+            margin-right: 10px;
+            color: #ff3c78;
+            font-size: 16px;
+        }
+
+        /* Social Media Icons */
+        .footer-section.social {
+            text-align: center;
+        }
+
+        .footer-section.social a {
+            display: inline-block;
+            margin: 0 12px;
+            font-size: 24px;
+            color: white;
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        .footer-section.social a:hover {
+            color: #ff3c78;
+            transform: translateY(-5px) scale(1.1);
+        }
+
+        /* Footer Bottom */
+        .footer-bottom {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.7);
+            text-align: center;
+        }
+
+        /* Responsive Footer */
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-section {
+                text-align: center;
+            }
+
+            .footer-section h3::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .footer-section.social {
+                margin-top: 20px;
+            }
+        }
+
+        /* Additional Effects */
+        .hero h1 {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .news-item {
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Media Queries for Responsive Design */
+
+        /* Small devices (phones, 600px and down) */
+        @media only screen and (max-width: 600px) {
+
+            /* Header */
+            header {
+                padding: 10px;
+            }
+
+            /* Navigation */
+            nav {
+                gap: 10px;
+                /* Reduce gap between links */
+                flex-wrap: wrap;
+                /* Allow links to wrap to the next line if needed */
+            }
+
+            nav a {
+                font-size: 14px;
+                /* Reduce font size for smaller screens */
+                padding: 5px 8px;
+                /* Adjust padding for smaller screens */
+            }
+
+            .profile-icon {
+                font-size: 20px;
+                /* Reduce profile icon size */
+            }
+        }
+
+        /* Medium devices (tablets, 601px to 768px) */
+        @media only screen and (min-width: 601px) and (max-width: 768px) {
+
+            /* Header */
+            header {
+                padding: 12px;
+            }
+
+            /* Navigation */
+            nav {
+                gap: 15px;
+                /* Slightly larger gap for tablets */
+            }
+
+            nav a {
+                font-size: 16px;
+                /* Slightly larger font size for tablets */
+                padding: 8px 12px;
+                /* Adjust padding for tablets */
+            }
+
+            .profile-icon {
+                font-size: 22px;
+                /* Slightly larger profile icon size */
+            }
+        }
+
+        /* Media Query for max-width: 768px */
+        @media only screen and (max-width: 768px) {
+
+            /* Header */
+            header {
+                padding: 12px;
+            }
+
+            /* Navigation */
+            nav {
+                gap: 12px;
+                /* Reduce gap between links */
+            }
+
+            nav a {
+                font-size: 16px;
+                /* Slightly smaller font size */
+                padding: 8px 10px;
+                /* Adjust padding */
+            }
+
+            .profile-icon {
+                font-size: 22px;
+                /* Slightly smaller profile icon */
+            }
+
+            /* Hero Section */
+            .hero h1 {
+                font-size: 36px;
+                /* Smaller heading for medium screens */
+            }
+
+            .hero p {
+                font-size: 16px;
+                /* Smaller paragraph text */
+            }
+
+            .btn {
+                padding: 10px 20px;
+                /* Smaller button */
+                font-size: 14px;
+            }
+
+            /* Sections */
+            .section {
+                padding: 60px 8%;
+                /* Adjust section padding */
+            }
+
+            /* Reviews Section */
+            .review-card {
+                width: 80%;
+                /* Adjust review card width */
+            }
+
+            /* News Section */
+            .news-section {
+                padding: 60px 8%;
+                /* Adjust news section padding */
+            }
+
+            .news-section h2 {
+                font-size: 28px;
+                /* Smaller heading */
+            }
+        }
+
+        /* Media Query for max-width: 480px */
+        @media only screen and (max-width: 480px) {
+
+            /* Header */
+            header {
+                padding: 10px;
+            }
+
+            /* Navigation */
+            nav {
+                gap: 8px;
+                /* Further reduce gap between links */
+            }
+
+            nav a {
+                font-size: 14px;
+                /* Smaller font size for small screens */
+                padding: 6px 8px;
+                /* Adjust padding */
+            }
+
+            .profile-icon {
+                font-size: 20px;
+                /* Smaller profile icon */
+            }
+
+            /* Hero Section */
+            .hero h1 {
+                font-size: 28px;
+                /* Smaller heading for small screens */
+            }
+
+            .hero p {
+                font-size: 14px;
+                /* Smaller paragraph text */
+            }
+
+            .btn {
+                padding: 8px 16px;
+                /* Smaller button */
+                font-size: 12px;
+            }
+
+            /* Sections */
+            .section {
+                padding: 40px 5%;
+                /* Adjust section padding */
+            }
+
+            /* Reviews Section */
+            .review-card {
+                width: 90%;
+                /* Adjust review card width */
+            }
+
+            /* News Section */
+            .news-section {
+                padding: 40px 5%;
+                /* Adjust news section padding */
+            }
+
+            .news-section h2 {
+                font-size: 24px;
+                /* Smaller heading */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="onyx-n-mist-home.html">Home</a>
+            <a href="onyx-n-mist-perfume-shop.html">Shop</a>
+            <a href="onyx-n-mist-about-us.html">About</a>
+            <a href="onyx-n-mist-contact-us.html">Contact</a>
+            <a id="auth-link" href="onyx-n-mist-singup-page.html">Login</a>
+            <a href="onyx-n-mist-user-profile.html" class="profile-icon"><i class="fas fa-user-circle"></i></a>
+        </nav>
+    </header>
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div id="particles-js"></div>
+            <h1>Premium Luxury Perfumes & Fragrances | OnyxNMist</h1>
+            <p>Discover long-lasting signature scents from top perfume brands -
+                Shop best perfumes for men, women and exclusive body mists</p>
+            <a href="onyx-n-mist-perfume-shop.html" class="btn">Explore Perfumes</a>
+        </section>
+
+        <!-- Reviews Section -->
+        <section class="section">
+            <h2>Customer Reviews</h2>
+            <p class="section-description">Read what our customers say about our premium perfume collection</p>
+            <div id="reviews-container" class="review-container">
+                <div id="review-card" class="review-card"></div>
+            </div>
+        </section>
+
+        <!-- News Section -->
+        <section class="news-section">
+            <h2>Latest News</h2>
+            <div id="news-container">
+                <!-- News items will be dynamically generated here -->
+            </div>
+        </section>
+    </main>
+    <!-- Enhanced Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Luxury Lane, New York, NY 10001</p>
+                <p><i class="fas fa-phone"></i> +1 (800) 555-1234</p>
+                <p><i class="fas fa-envelope"></i> contact@onyxnmist.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="onyx-n-mist-perfume-shop.html">Shop</a>
+                <a href="onyx-n-mist-about-us.html">About</a>
+                <a href="onyx-n-mist-contact-us.html">Contact</a>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <a href="https://facebook.com/onyxnmist" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="https://instagram.com/onyxnmist" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://twitter.com/onyxnmist" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2025 OnyxNMist. All Rights Reserved.
+        </div>
+    </footer>
+
+    <!-- Particle.js Library -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // Particle.js Configuration
+        particlesJS.load('particles-js', 'particles.json', function () {
+            console.log('Particles.js loaded');
+        });
+
+        // Scroll Animations
+        const sections = document.querySelectorAll('.section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        // Dynamic News Fetching (Mock Data)
+        const newsItems = [
+            { title: "Spring Sale!", description: "Get 20% off on all floral perfumes this spring!", date: "March 1, 2025" },
+            { title: "New Arrival: Citrus Burst", description: "Introducing our latest fragrance, Citrus Burst, perfect for summer!", date: "March 5, 2025" },
+            { title: "Limited Edition: Velvet Rose", description: "Don't miss out on our limited edition Velvet Rose, available for a short time!", date: "March 7, 2025" },
+            { title: "Buy One Get One Free", description: "For this weekend only, buy one perfume and get another free!", date: "March 8, 2025" }
+        ];
+
+        function renderNews() {
+            const newsContainer = document.getElementById('news-container');
+            newsContainer.innerHTML = newsItems.map(item => `
+                <div class="news-item">
+                    <h3>${item.title}</h3>
+                    <p>${item.description}</p>
+                    <small>${item.date}</small>
+                </div>
+            `).join('');
+        }
+
+        renderNews();
+
+        // Dynamic Reviews Carousel
+        const reviews = [
+            "Absolutely love the Midnight Elegance scent! It lasts all day.",
+            "OnyxNMist perfumes are my go-to now. Ocean Breeze is so fresh!",
+            "Velvet Rose is divine! Soft and elegant, highly recommend.",
+            "Such luxurious fragrances at great prices! Will buy again."
+        ];
+
+        let currentReviewIndex = 0;
+        const reviewCard = document.getElementById('review-card');
+
+        function showNextReview() {
+            reviewCard.classList.remove('show');
+            reviewCard.classList.add('hide');
+
+            setTimeout(() => {
+                reviewCard.innerHTML = `<p>⭐ ${reviews[currentReviewIndex]}</p>`;
+                reviewCard.classList.remove('hide');
+                reviewCard.classList.add('show');
+
+                currentReviewIndex = (currentReviewIndex + 1) % reviews.length;
+            }, 1000);
+        }
+
+        showNextReview();
+        setInterval(showNextReview, 4000);
+
+        // Login/Logout Functionality
+        const authLink = document.getElementById('auth-link');
+
+        function updateAuthLink() {
+            const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+            if (isLoggedIn) {
+                authLink.textContent = 'Logout';
+                authLink.href = '#'; // Set href to # to prevent navigation
+                authLink.onclick = function (e) {
+                    e.preventDefault(); // Prevent default navigation
+                    logout(); // Call the logout function
+                };
+            } else {
+                authLink.textContent = 'Login';
+                authLink.href = 'onyx-n-mist-singup-page.html';
+                authLink.onclick = null; // Remove onclick handler
+            }
+        }
+
+
+        function logout() {
+            localStorage.setItem('isLoggedIn', 'false');
+            updateAuthLink();
+            window.location.href = 'index.html';
+            //alert('You have been logged out.');
+        }
+
+        // Check login state on page load
+        updateAuthLink();
+    </script>
+</body>
+
+</html>

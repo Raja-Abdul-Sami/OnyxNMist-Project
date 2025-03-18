@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Complete your purchase securely on OnyxNMist. Fast, reliable, and easy checkout process. Shop now!">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OnyxNMist - Secure Checkout | Complete Your Purchase</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "CheckoutPage",
+          "name": "Secure Checkout - OnyxNMist",
+          "description": "Complete your purchase securely on OnyxNMist.",
+          "url": "https://www.onyxnmist.com/secure-checkout"
+        }
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #111, #222);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background: linear-gradient(135deg, rgba(3, 3, 3, 0.9), rgba(255, 60, 120, 0.8));
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff3c78;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #ff3c78;
+        }
+
+        .profile-icon {
+            font-size: 24px;
+            color: white;
+            transition: color 0.3s ease;
+        }
+
+        .profile-icon:hover {
+            color: #ff3c78;
+        }
+
+        .checkout-container {
+            max-width: 1200px;
+            margin: 100px auto 40px;
+            padding: 0 20px;
+            width: 100%;
+            display: flex;
+            gap: 30px;
+        }
+
+        .checkout-form-section {
+            flex: 2;
+            background: linear-gradient(135deg, #333, #444);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .checkout-summary-section {
+            flex: 1;
+            background: linear-gradient(135deg, #333, #444);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            height: fit-content;
+        }
+
+        h2 {
+            font-size: 28px;
+            color: #ff3c78;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        h3 {
+            font-size: 20px;
+            color: #ff3c78;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            color: #ff3c78;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            background: rgba(255, 60, 120, 0.1);
+            border: 2px solid #ff3c78;
+            border-radius: 8px;
+            font-size: 14px;
+            color: white;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus {
+            border-color: #ff1e5a;
+            outline: none;
+        }
+
+        .payment-options {
+            margin-top: 20px;
+        }
+
+        .payment-card {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px;
+            background: rgba(255, 60, 120, 0.1);
+            border: 2px solid #ff3c78;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .payment-card.selected {
+            background: rgba(255, 60, 120, 0.3);
+            border-color: #ff1e5a;
+        }
+
+        .payment-card input {
+            margin: 0;
+        }
+
+        .payment-info {
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(255, 60, 120, 0.1);
+            border-radius: 8px;
+            display: none;
+        }
+
+        .payment-info.show {
+            display: block;
+        }
+
+        .credit-card-form {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255, 60, 120, 0.2);
+        }
+
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+
+        .item-info h3 {
+            font-size: 16px;
+            margin-bottom: 5px;
+            color: #ff3c78;
+        }
+
+        .item-info p {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .remove-btn {
+            background: none;
+            border: none;
+            color: #ff3c78;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .total {
+            font-size: 20px;
+            font-weight: 600;
+            color: #ff3c78;
+            text-align: right;
+            margin-top: 20px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #ff3c78, #ff1e5a);
+            border: none;
+            color: white;
+            font-size: 16px;
+            font-weight: 500;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: linear-gradient(135deg, #ff1e5a, #ff3c78);
+        }
+
+        .back-to-cart {
+            display: inline-block;
+            margin-top: 15px;
+            color: #ff3c78;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1001;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal {
+            background: linear-gradient(135deg, #333, #444);
+            padding: 30px;
+            border-radius: 12px;
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #ff3c78;
+        }
+
+        .modal p {
+            font-size: 16px;
+            margin-bottom: 30px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .modal-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .modal-buttons button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
+
+        .modal-buttons button.confirm {
+            background: linear-gradient(135deg, #ff3c78, #ff1e5a);
+            color: white;
+        }
+
+        .modal-buttons button.cancel {
+            background: #444;
+            color: white;
+        }
+
+        .modal-buttons button:hover {
+            opacity: 0.9;
+        }
+
+        .receipt {
+            background: #222;
+            border: 2px dashed #ff3c78;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .shop-name {
+            font-size: 24px;
+            font-weight: 600;
+            color: #ff3c78;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .info {
+            text-align: center;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 20px;
+        }
+
+        .receipt table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .receipt table th {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 60, 120, 0.2);
+            color: #ff3c78;
+            font-weight: 500;
+        }
+
+        .receipt table td {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 60, 120, 0.2);
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .receipt .total {
+            font-size: 18px;
+            font-weight: 600;
+            color: #ff3c78;
+            margin-top: 20px;
+        }
+
+        .thanks {
+            text-align: center;
+            font-size: 14px;
+            color: #ff3c78;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .checkout-container {
+                flex-direction: column;
+                margin-top: 80px;
+                padding: 0 15px;
+            }
+
+            .credit-card-form {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">OnyxNMist</div>
+        <nav aria-label="Main Navigation">
+            <a href="index.html" aria-label="Home">Home</a>
+            <a href="onyx-n-mist-perfume-shop.html" aria-label="Shop">Shop</a>
+            <a href="onyx-n-mist-about-us.html" aria-label="About">About</a>
+            <a href="onyx-n-mist-contact-us.html" aria-label="Contact">Contact</a>
+            <a href="onyx-n-mist-cart.html" aria-label="Cart">Cart</a>
+            <a href="onyx-n-mist-user-profile.html" class="profile-icon"><i class="fas fa-user-circle"></i></a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="checkout-container">
+            <div class="checkout-form-section">
+                <h2>Checkout</h2>
+                <form id="checkout-form">
+                    <div class="form-section">
+                        <h3>Shipping Information</h3>
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" name="fullname" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Address</label>
+                            <input type="text" name="address" required>
+                        </div>
+                        <div class="form-group">
+                            <label>City</label>
+                            <input type="text" name="city" required>
+                        </div>
+                        <div class="form-group">
+                            <label>State</label>
+                            <input type="text" name="state" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Zip Code</label>
+                            <input type="text" name="zip" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" name="email" required>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Payment Method</h3>
+                        <div class="payment-options">
+                            <div class="payment-card" id="cod-card" onclick="selectPayment('cod')">
+                                <input type="radio" name="payment" id="cod" required>
+                                <label for="cod">Cash on Delivery</label>
+                            </div>
+                            <div class="payment-card" id="credit-card" onclick="selectPayment('card')">
+                                <input type="radio" name="payment" id="card" required>
+                                <label for="card">Credit/Debit Card</label>
+                            </div>
+                            <div class="payment-info" id="card-payment">
+                                <div class="credit-card-form">
+                                    <div class="form-group">
+                                        <input type="text" name="card-number" placeholder="Card Number" maxlength="16" 
+                                               oninput="limitCardNumber(this)" class="card-field" disabled>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" name="expiry" placeholder="MM/YY" maxlength="5" 
+                                               oninput="formatExpiryDate(this)" class="card-field" disabled>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" name="cvc" placeholder="CVC" maxlength="3" 
+                                               oninput="limitCVC(this)" class="card-field" disabled>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" name="card-name" placeholder="Cardholder Name" class="card-field" disabled>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Complete Purchase</button>
+                    <a href="cart.html" class="back-to-cart">← Back to Cart</a>
+                </form>
+            </div>
+
+            <div class="checkout-summary-section">
+                <h3>Order Summary</h3>
+                <div id="cart-items"></div>
+                <div class="total" id="total-price">Total: $0.00</div>
+            </div>
+        </div>
+    </main>
+
+    <div class="modal-overlay" id="confirmation-modal">
+        <div class="modal">
+            <h3>Confirm Purchase</h3>
+            <p>Are you sure you want to complete this purchase?</p>
+            <div class="modal-buttons">
+                <button class="confirm" onclick="completePurchase()">Confirm</button>
+                <button class="cancel" onclick="closeModal()">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="receipt-modal">
+        <div class="modal" style="max-width: 500px;">
+            <div class="receipt">
+                <p class="shop-name">OnyxNMist</p>
+                <p class="info" id="receipt-info"></p>
+                <table id="receipt-items">
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Qty</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+                <div class="total">
+                    <p>Total:</p>
+                    <p id="receipt-total">$0.00</p>
+                </div>
+                <p class="thanks">Thank you for choosing OnyxNMist!</p>
+            </div>
+            <button class="submit-btn" onclick="closeReceipt()" style="margin-top: 20px;">Close</button>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2025 OnyxNMist. All Rights Reserved.
+    </footer>
+
+    <script>
+        // Initialize checkout
+        document.addEventListener('DOMContentLoaded', () => {
+            updateCheckout();
+        });
+
+        // Update checkout items
+        function updateCheckout() {
+            const cartItemsContainer = document.getElementById("cart-items");
+            const totalPriceElement = document.getElementById("total-price");
+            const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+
+            if (!cartItems.length) {
+                cartItemsContainer.innerHTML = '<div class="empty-cart">Your cart is empty</div>';
+                totalPriceElement.style.display = 'none';
+                return;
+            }
+
+            let total = 0;
+            cartItemsContainer.innerHTML = "";
+
+            cartItems.forEach((item) => {
+                total += item.price * item.quantity;
+
+                const itemDiv = document.createElement("div");
+                itemDiv.className = "cart-item";
+                itemDiv.innerHTML = `
+                    <div class="item-info">
+                        <h3>${item.name}</h3>
+                        <p>$${item.price.toFixed(2)} × ${item.quantity}</p>
+                    </div>
+                    <button class="remove-btn" onclick="removeFromCart('${item.name}')">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                `;
+
+                cartItemsContainer.appendChild(itemDiv);
+            });
+
+            totalPriceElement.textContent = `Total: $${total.toFixed(2)}`;
+        }
+
+        // Remove item from cart
+        function removeFromCart(itemName) {
+            let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+            cartItems = cartItems.filter(item => item.name !== itemName);
+            localStorage.setItem('cart', JSON.stringify(cartItems));
+            updateCheckout();
+        }
+
+        // Payment method selection
+        function selectPayment(method) {
+            const cardPayment = document.getElementById('card-payment');
+            const cardFields = document.querySelectorAll('.card-field');
+            const codCard = document.getElementById('cod-card');
+            const creditCard = document.getElementById('credit-card');
+
+            if (method === 'card') {
+                cardPayment.classList.add('show');
+                creditCard.classList.add('selected');
+                codCard.classList.remove('selected');
+                cardFields.forEach(field => {
+                    field.disabled = false;
+                    field.required = true;
+                });
+            } else {
+                cardPayment.classList.remove('show');
+                codCard.classList.add('selected');
+                creditCard.classList.remove('selected');
+                cardFields.forEach(field => {
+                    field.disabled = true;
+                    field.required = false;
+                    field.value = '';
+                });
+            }
+        }
+
+        // Form validation
+        function validateForm() {
+            const form = document.getElementById('checkout-form');
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return false;
+            }
+
+            if (document.getElementById('card').checked) {
+                const cardNumber = document.querySelector('input[name="card-number"]');
+                const expiry = document.querySelector('input[name="expiry"]');
+                const cvc = document.querySelector('input[name="cvc"]');
+                const cardName = document.querySelector('input[name="card-name"]');
+
+                if (!cardNumber.value || !expiry.value || !cvc.value || !cardName.value) {
+                    alert('Please complete all card payment details');
+                    return false;
+                }
+
+                if (cardNumber.value.length !== 16) {
+                    alert('Please enter a valid 16-digit card number');
+                    return false;
+                }
+
+                if (!/^\d{2}\/\d{2}$/.test(expiry.value)) {
+                    alert('Please enter a valid expiry date in MM/YY format');
+                    return false;
+                }
+
+                if (cvc.value.length !== 3) {
+                    alert('Please enter a valid 3-digit CVC');
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        // Show confirmation modal
+        function showModal() {
+            const modal = document.getElementById('confirmation-modal');
+            modal.classList.add('active');
+        }
+
+        // Close confirmation modal
+        function closeModal() {
+            const modal = document.getElementById('confirmation-modal');
+            modal.classList.remove('active');
+        }
+
+        // Complete purchase
+        function completePurchase() {
+            if (!validateForm()) {
+                return;
+            }
+
+            const formData = new FormData(document.getElementById('checkout-form'));
+            const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+            const now = new Date();
+
+            document.getElementById('receipt-info').innerHTML = `
+                ${formData.get('address')}<br>
+                ${formData.get('city')}, ${formData.get('state')} ${formData.get('zip')}<br>
+                Date: ${now.toLocaleDateString()}<br>
+                Time: ${now.toLocaleTimeString()}
+            `;
+
+            const tbody = document.querySelector('#receipt-items tbody');
+            tbody.innerHTML = '';
+            let total = 0;
+            
+            cartItems.forEach(item => {
+                total += item.price * item.quantity;
+                tbody.innerHTML += `
+                    <tr>
+                        <td>${item.name}</td>
+                        <td>${item.quantity}</td>
+                        <td>$${(item.price * item.quantity).toFixed(2)}</td>
+                    </tr>
+                `;
+            });
+
+            document.getElementById('receipt-total').textContent = `$${total.toFixed(2)}`;
+            closeModal();
+            document.getElementById('receipt-modal').classList.add('active');
+            localStorage.removeItem('cart');
+            updateCheckout();
+        }
+
+        function closeReceipt() {
+            document.getElementById('receipt-modal').classList.remove('active');
+            window.location.href = 'index.html';
+        }
+
+        // Form submission handler
+        document.getElementById('checkout-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (validateForm()) {
+                showModal();
+            }
+        });
+
+        // Card input formatting
+        function limitCardNumber(input) {
+            input.value = input.value.replace(/\D/g, '').slice(0, 16);
+        }
+
+        function formatExpiryDate(input) {
+            let value = input.value.replace(/\D/g, '');
+            if (value.length > 2) {
+                value = value.slice(0, 2) + '/' + value.slice(2, 4);
+            }
+            input.value = value;
+        }
+
+        function limitCVC(input) {
+            input.value = input.value.replace(/\D/g, '').slice(0, 3);
+        }
+    </script>
+</body>
+</html>

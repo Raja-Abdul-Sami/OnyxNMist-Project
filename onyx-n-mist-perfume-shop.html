@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO Meta Tags -->
+    <title>OnyxNMist Perfume Store | Buy Luxury Fragrances Online</title>
+    <meta name="description"
+        content="Shop premium perfumes online at OnyxNMist fragrance store. Discover long-lasting colognes, affordable men's fragrances, and exclusive perfume deals. Best prices for luxury scents with secure online purchase.">
+    <meta name="keywords"
+        content="perfume store, buy perfumes online, fragrance shop, long lasting, perfume online shopping, affordable perfume for men, best budget perfume for men, buy cologne online, perfume price, order perfume online">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.5.0/nouislider.min.css">
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="OnyxNMist | Buy Luxury Fragrances Online">
+    <meta property="og:description"
+        content="Shop exclusive luxury perfumes at OnyxNMist. Free shipping on orders over $50. Discover premium designer scents for men and women.">
+    <meta property="og:image" content="https://www.onyxnmist.com/images/og-banner.jpg">
+    <meta property="og:url" content="https://www.onyxnmist.com/store">
+    <meta property="og:type" content="website">
+
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "PerfumeStore",
+            "name": "OnyxNMist Perfume Store | Buy Luxury Fragrances Online",
+            "priceRange": "$$-$$$",
+            "currenciesAccepted": "$",
+            "image": "https://onyxnmist.com/logo.png",
+            "description": "Online fragrance shop offering premium perfumes, long-lasting colognes, and affordable men's fragrances. Best prices on luxury scents with secure purchase.",
+            "keywords": ["perfume store", "buy perfumes online", "affordable men's fragrance"],
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Your City",
+                "addressRegion": "Your Region"
+            }
+        }
+        </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #111, #222);
+            color: white;
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 300px 1fr;
+        }
+
+        /* ===== IMPROVED SIDEBAR ===== */
+        aside {
+            background: linear-gradient(195deg, rgba(15, 15, 15, 0.98), rgba(25, 25, 25, 0.98));
+            padding: 2rem;
+            position: fixed;
+            width: 300px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            border-right: 1px solid rgba(255, 60, 120, 0.2);
+            box-shadow: 4px 0 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #ff3c78;
+            text-align: center;
+            padding: 1rem;
+            background: rgba(255, 60, 120, 0.1);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 60, 120, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255, 60, 120, 0.3);
+        }
+
+        nav {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .nav-link {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            padding: 1rem;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.3s ease;
+            background: rgba(255, 60, 120, 0.05);
+        }
+
+        .nav-link:hover {
+            background: rgba(255, 60, 120, 0.1);
+            color: #ff3c78;
+            transform: translateX(5px);
+        }
+
+        .nav-link i {
+            width: 24px;
+            text-align: center;
+        }
+
+        #cart-icon {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        #cart-count {
+            background: #ff1e5a;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 50%;
+            font-size: 12px;
+        }
+
+        /* ===== IMPROVED PRODUCT CARDS ===== */
+        .product-card {
+            background: linear-gradient(145deg, #1a1a1a, #252525);
+            border-radius: 16px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            border: 1px solid rgba(255, 60, 120, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 60, 120, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .product-card:hover::before {
+            left: 100%;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 60, 120, 0.2);
+        }
+
+        .product-image-wrapper {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            aspect-ratio: 1/1;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .product-image:hover {
+            transform: scale(1.1);
+        }
+
+        .product-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: rgba(255, 60, 120, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9em;
+        }
+
+        .product-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .product-description {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
+        }
+
+        .product-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .price {
+            color: #ff3c78;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .rating {
+            display: flex;
+            gap: 0.25rem;
+            color: #ffd700;
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .product-actions button {
+            flex: 1;
+            background: rgba(255, 60, 120, 0.1);
+            border: 1px solid rgba(255, 60, 120, 0.3);
+            color: white;
+            padding: 0.75rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .product-actions button:hover {
+            background: rgba(255, 60, 120, 0.2);
+            color: #ff3c78;
+            transform: translateY(-2px);
+        }
+
+        /* ===== MAIN CONTENT ===== */
+        main {
+            grid-column: 2;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .controls {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            background: rgba(255, 60, 120, 0.05);
+            padding: 1.5rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 60, 120, 0.2);
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        input,
+        select {
+            background: rgba(255, 60, 120, 0.05);
+            border: 1px solid rgba(255, 60, 120, 0.3);
+            color: white;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        input:focus,
+        select:focus {
+            outline: none;
+            background: rgba(255, 60, 120, 0.1);
+            border-color: #ff1e5a;
+            box-shadow: 0 0 15px rgba(255, 60, 120, 0.2);
+        }
+
+        .price-range {
+            color: white;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: linear-gradient(135deg, rgba(3, 3, 3, 0.9), rgba(255, 60, 120, 0.8));
+            padding: 20px;
+            text-align: center;
+            margin-top: auto;
+            grid-column: 1 / -1;
+        }
+
+        /* ===== MODAL ===== */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1001;
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            background: linear-gradient(145deg, #1a1a1a, #252525);
+            max-width: 800px;
+            margin: 5% auto;
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 60, 120, 0.3);
+            position: relative;
+            animation: modalSlide 0.5s ease-out;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            color: #ff3c78;
+            font-size: 28px;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .close-modal:hover {
+            color: #ff1e5a;
+        }
+
+        .modal-body {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .modal-image-container {
+            aspect-ratio: 1/1;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .modal-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-specs {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .spec-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .spec-item i {
+            color: #ff3c78;
+            width: 24px;
+        }
+
+        .notes-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+
+        .note-tag {
+            background: rgba(255, 60, 120, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 60, 120, 0.3);
+        }
+
+        /* ===== TOAST ===== */
+        .cart-toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #ff3c78;
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            display: none;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes modalSlide {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+            }
+
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                grid-template-columns: 1fr;
+            }
+
+            aside {
+                position: static;
+                width: 100%;
+                height: auto;
+            }
+
+            main {
+                grid-column: 1;
+                padding: 1rem;
+            }
+
+            .modal-content {
+                margin: 10% auto;
+                width: 90%;
+            }
+
+            .modal-body {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-image {
+                max-height: 300px;
+            }
+        }
+
+        /* Media Query for 480px and below */
+        @media (max-width: 480px) {
+            body {
+                grid-template-columns: 1fr;
+                padding-top: 60px;
+                /* Add padding for fixed header */
+            }
+
+            aside {
+                /*position: fixed;*/
+                top: 0;
+                width: 100%;
+                height: auto;
+                padding: 1rem;
+                z-index: 1000;
+                border-right: none;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            }
+
+            .logo {
+                font-size: 24px;
+                padding: 0.75rem;
+            }
+
+            .nav-link {
+                padding: 0.75rem;
+                font-size: 14px;
+            }
+
+            .controls {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+                gap: 1rem;
+            }
+
+            .filter-group {
+                gap: 0.5rem;
+            }
+
+            input,
+            select {
+                padding: 0.5rem 0.75rem;
+                font-size: 14px;
+            }
+
+            .price-range {
+                font-size: 14px;
+            }
+
+            main {
+                padding: 1rem;
+                margin-top: 60px;
+                /* Offset for fixed header */
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .product-card {
+                padding: 1rem;
+            }
+
+            .product-title {
+                font-size: 1.25rem;
+            }
+
+            .product-description {
+                font-size: 0.9rem;
+            }
+
+            .price {
+                font-size: 1.25rem;
+            }
+
+            .product-actions button {
+                padding: 0.5rem;
+                font-size: 14px;
+            }
+
+            .modal-content {
+                width: 95%;
+                padding: 1rem;
+                margin: 20% auto;
+            }
+
+            .modal-body {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .modal-image-container {
+                max-height: 200px;
+            }
+
+            .product-specs {
+                grid-template-columns: 1fr;
+                gap: 0.75rem;
+            }
+
+            .spec-item {
+                font-size: 14px;
+            }
+
+            .notes-grid {
+                gap: 0.5rem;
+            }
+
+            .note-tag {
+                padding: 0.25rem 0.75rem;
+                font-size: 12px;
+            }
+
+            .cart-toast {
+                bottom: 10px;
+                right: 10px;
+                padding: 0.75rem 1rem;
+                font-size: 14px;
+            }
+
+            footer {
+                padding: 1rem;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ===== SIDEBAR ===== -->
+    <aside>
+        <div class="logo">OnyxNMist</div>
+        <nav>
+            <a href="index.html" class="nav-link">
+                <i class="fas fa-home"></i>
+                Home
+            </a>
+            <a href="onyx-n-mist-perfume-shop.html" class="nav-link active">
+                <i class="fas fa-store"></i>
+                Shop
+            </a>
+            <a href="onyx-n-mist-about-us.html" class="nav-link">
+                <i class="fas fa-info-circle"></i>
+                About
+            </a>
+            <a href="onyx-n-mist-contact-us.html" class="nav-link">
+                <i class="fas fa-envelope"></i>
+                Contact
+            </a>
+            <a href="onyx-n-mist-cart.html" class="nav-link" id="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                Cart
+                <span id="cart-count">0</span>
+            </a>
+        </nav>
+
+        <!-- ===== FILTERS ===== -->
+        <section class="controls">
+            <div class="filter-group">
+                <label>Search</label>
+                <input type="text" class="search-input" placeholder="Find your fragrance...">
+            </div>
+            <div class="filter-group">
+                <label>Category</label>
+                <select class="category-select">
+                    <option value="all">All</option>
+                    <option value="floral">Floral</option>
+                    <option value="woody">Woody</option>
+                    <option value="fresh">Fresh</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Price Range</label>
+                <div class="range-slider" id="priceSlider"></div>
+                <div class="price-range">
+                    $<span id="minPrice">0</span> - $<span id="maxPrice">200</span>
+                </div>
+            </div>
+        </section>
+    </aside>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main>
+        <div class="product-grid" id="productContainer"></div>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        &copy; 2025 OnyxNMist. All Rights Reserved.
+    </footer>
+
+    <!-- ===== MODAL ===== -->
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <div class="modal-body">
+                <div class="modal-image-container">
+                    <img class="modal-image" src="" alt="">
+                </div>
+                <div class="modal-details">
+                    <h2 class="product-title"></h2>
+                    <div class="product-meta">
+                        <span class="price"></span>
+                        <div class="rating"></div>
+                    </div>
+                    <p class="product-description"></p>
+                    <div class="product-specs">
+                        <div class="spec-item">
+                            <i class="fas fa-tag"></i>
+                            <span class="spec-label">Category:</span>
+                            <span class="category"></span>
+                        </div>
+                        <div class="spec-item">
+                            <i class="fas fa-weight-hanging"></i>
+                            <span class="spec-label">Size:</span>
+                            <span class="size"></span>
+                        </div>
+                        <div class="spec-item">
+                            <i class="fas fa-cube"></i>
+                            <span class="spec-label">Stock:</span>
+                            <span class="stock"></span>
+                        </div>
+                        <div class="spec-item">
+                            <i class="fas fa-industry"></i>
+                            <span class="spec-label">Brand:</span>
+                            <span class="brand"></span>
+                        </div>
+                    </div>
+                    <div class="product-notes">
+                        <h3>Key Notes</h3>
+                        <div class="notes-grid"></div>
+                    </div>
+                    <div class="product-actions">
+                        <button class="add-to-cart">Add to Cart</button>
+                        <button class="add-to-wishlist">Wishlist</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== TOAST ===== -->
+    <div class="cart-toast" id="cartToast">Item added to cart!</div>
+
+    <!-- ===== SCRIPTS ===== -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.5.0/nouislider.min.js"></script>
+    <script>
+        const products = [
+            {
+                id: 1,
+                name: "Midnight Elegance - Long-Lasting Woody Cologne for Men",
+                price: 50.00,
+                image: "assets/images/black.png",
+                category: "woody",
+                rating: 4.5,
+                description: "A long-lasting woody fragrance offering 12+ hours of intense musk and vanilla notes. Best affordable luxury perfume for men seeking premium cologne online. Perfect for special occasions and evening wear.",
+                notes: ["Bergamot", "Black Orchid", "Sandalwood", "Vanilla"],
+                size: "100ml Eau de Parfum",
+                stock: "In Stock (25+ units)",
+                brand: "Onyx Collection"
+            },
+            {
+                id: 2,
+                name: "Ocean Breeze - Fresh Men's Cologne | Buy Online Now",
+                price: 40.00,
+                image: "assets/images/blue.png",
+                category: "fresh",
+                rating: 4.2,
+                description: "Affordable fresh scent with sea salt and lemon zest notes. Ideal for daily wear in our online fragrance shop. Best budget perfume for summer with 8-hour longevity.",
+                notes: ["Sea Salt", "Lemon Zest", "Driftwood", "Ambergris"],
+                size: "80ml Eau de Toilette",
+                stock: "In Stock (15+ units)",
+                brand: "Aqua Series"
+            },
+            {
+                id: 3,
+                name: "Velvet Rose - Floral Perfume for Women | Sale Price",
+                price: 45.00,
+                image: "assets/images/red.png",
+                category: "floral",
+                rating: 4.8,
+                description: "Premium floral perfume at best online price. Romantic damask rose blend with 10-hour staying power. Top-rated in our perfume store.",
+                notes: ["Damask Rose", "Peony", "White Musk", "Vanilla"],
+                size: "100ml Eau de Parfum",
+                stock: "Low Stock (5 units)",
+                brand: "Luxury Blossoms"
+            },
+            {
+                id: 4,
+                name: "Citrus Burst - Affordable Men's Daily Cologne",
+                price: 35.00,
+                image: "assets/images/green.png",
+                category: "fresh",
+                rating: 4.0,
+                description: "Best cheap men's fragrance with energizing citrus notes. Purchase cologne online for gym or office use. 6-hour longevity at unbeatable perfume price.",
+                notes: ["Lemon", "Orange Blossom", "Ginger", "Vetiver"],
+                size: "50ml Eau de Cologne",
+                stock: "In Stock (30+ units)",
+                brand: "Citrus Line"
+            },
+            {
+                id: 5,
+                name: "Woodland Whisper - Premium Men's Fragrance Online",
+                price: 55.00,
+                image: "assets/images/brown.png",
+                category: "woody",
+                rating: 4.6,
+                description: "Luxury cologne shop favorite with cedarwood base. Best affordable men's fragrances for winter. 14-hour longevity - order fragrance online today.",
+                notes: ["Cedarwood", "Sandalwood", "Patchouli", "Amber"],
+                size: "100ml Eau de Parfum",
+                stock: "In Stock (20+ units)",
+                brand: "Forest Essence"
+            },
+            {
+                id: 6,
+                name: "Floral Fantasy - Women's Perfume Sale | Online Discount",
+                price: 60.00,
+                image: "assets/images/floral.png",
+                category: "floral",
+                rating: 4.7,
+                description: "Premium parfumerie online shop exclusive. Jasmine and gardenia blend with 16-hour longevity. Limited-time perfume sale - buy luxury fragrances online.",
+                notes: ["Jasmine", "Gardenia", "Ylang-Ylang", "White Musk"],
+                size: "120ml Eau de Parfum",
+                stock: "Pre-Order",
+                brand: "Bloom Collection"
+            }
+        ];
+
+        class PerfumeShop {
+            constructor() {
+                this.cart = JSON.parse(localStorage.getItem('cart')) || [];
+                this.filteredProducts = [...products];
+                this.currentProductId = null;
+                this.init();
+            }
+
+            init() {
+                this.initPriceSlider();
+                this.renderProducts();
+                this.initEventListeners();
+                this.updateCartCount();
+            }
+
+            initPriceSlider() {
+                const slider = document.getElementById('priceSlider');
+                noUiSlider.create(slider, {
+                    start: [0, 200],
+                    connect: true,
+                    range: {
+                        'min': 0,
+                        'max': 200
+                    },
+                    format: {
+                        to: value => Math.round(value),
+                        from: value => Number(value)
+                    }
+                });
+
+                slider.noUiSlider.on('update', (values) => {
+                    document.getElementById('minPrice').textContent = values[0];
+                    document.getElementById('maxPrice').textContent = values[1];
+                    this.filterProducts();
+                });
+            }
+
+            filterProducts() {
+                const searchTerm = document.querySelector('.search-input').value.toLowerCase();
+                const category = document.querySelector('.category-select').value;
+                const [minPrice, maxPrice] = document.getElementById('priceSlider').noUiSlider.get();
+
+                this.filteredProducts = products.filter(product => {
+                    const matchesSearch = product.name.toLowerCase().includes(searchTerm) ||
+                        product.description.toLowerCase().includes(searchTerm);
+                    const matchesCategory = category === 'all' || product.category === category;
+                    const matchesPrice = product.price >= minPrice && product.price <= maxPrice;
+
+                    return matchesSearch && matchesCategory && matchesPrice;
+                });
+
+                this.renderProducts();
+            }
+
+            renderProducts() {
+                const container = document.getElementById('productContainer');
+                container.innerHTML = this.filteredProducts.map(product => `
+                    <article class="product-card" data-id="${product.id}">
+                        <div class="product-image-wrapper">
+                            <img src="${product.image}" alt="${product.name}" class="product-image">
+                            ${product.stock.includes('Low') ?
+                        '<span class="product-badge">Low Stock</span>' : ''}
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-title">${product.name}</h3>
+                            <p class="product-description">${product.description}</p>
+                            <div class="product-meta">
+                                <span class="price">$${product.price.toFixed(2)}</span>
+                                <div class="rating">
+                                    ${this.generateRatingStars(product.rating)}
+                                </div>
+                            </div>
+                            <div class="product-actions">
+                                <button class="quick-add" data-id="${product.id}">
+                                    <i class="fas fa-cart-plus"></i> Add to Cart
+                                </button>
+                                <button class="wishlist" data-id="${product.id}">
+                                    <i class="fas fa-heart"></i> Wishlist
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+                `).join('');
+            }
+
+            generateRatingStars(rating) {
+                return Array.from({ length: 5 }, (_, i) => {
+                    const filled = i < Math.floor(rating);
+                    const half = !filled && (i === Math.floor(rating)) && (rating % 1 >= 0.5);
+                    return `<i class="fas fa-star${filled ? '' : half ? '-half-alt' : ''}"></i>`;
+                }).join('');
+            }
+
+            initEventListeners() {
+                document.querySelector('.search-input').addEventListener('input', () => this.filterProducts());
+                document.querySelector('.category-select').addEventListener('change', () => this.filterProducts());
+
+                document.addEventListener('click', e => {
+                    if (e.target.closest('.product-card')) {
+                        const productId = e.target.closest('.product-card').dataset.id;
+                        this.showProductModal(productId);
+                    }
+                    if (e.target.closest('.quick-add')) {
+                        const productId = e.target.closest('.quick-add').dataset.id;
+                        this.addToCart(Number(productId));
+                    }
+                    if (e.target.closest('.add-to-cart')) {
+                        this.addToCart(this.currentProductId);
+                    }
+                });
+
+                document.querySelector('.close-modal').addEventListener('click', () => this.closeModal());
+                document.getElementById('productModal').addEventListener('click', (e) => {
+                    if (e.target === document.getElementById('productModal')) {
+                        this.closeModal();
+                    }
+                });
+            }
+
+            showProductModal(productId) {
+                this.currentProductId = Number(productId);
+                const product = products.find(p => p.id === this.currentProductId);
+                const modal = document.getElementById('productModal');
+
+                modal.querySelector('.modal-image').src = product.image;
+                modal.querySelector('.product-title').textContent = product.name;
+                modal.querySelector('.price').textContent = `$${product.price.toFixed(2)}`;
+                modal.querySelector('.rating').innerHTML = this.generateRatingStars(product.rating);
+                modal.querySelector('.product-description').textContent = product.description;
+                modal.querySelector('.category').textContent = product.category;
+                modal.querySelector('.size').textContent = product.size;
+                modal.querySelector('.stock').textContent = product.stock;
+                modal.querySelector('.brand').textContent = product.brand;
+
+                const notesGrid = modal.querySelector('.notes-grid');
+                notesGrid.innerHTML = product.notes.map(note => `
+                    <div class="note-tag">${note}</div>
+                `).join('');
+
+                modal.style.display = 'block';
+            }
+
+            closeModal() {
+                document.getElementById('productModal').style.display = 'none';
+            }
+
+            addToCart(productId) {
+                const product = products.find(p => p.id === productId);
+                const cartItem = this.cart.find(item => item.id === productId);
+
+                if (cartItem) {
+                    cartItem.quantity++;
+                } else {
+                    this.cart.push({
+                        id: product.id,
+                        name: product.name,
+                        price: product.price,
+                        image: product.image,
+                        quantity: 1
+                    });
+                }
+
+                this.updateCartCount();
+                this.showCartToast();
+                this.saveCart();
+            }
+
+            showCartToast() {
+                const toast = document.getElementById('cartToast');
+                toast.style.display = 'block';
+                setTimeout(() => toast.style.display = 'none', 2000);
+            }
+
+            updateCartCount() {
+                const count = this.cart.reduce((sum, item) => sum + item.quantity, 0);
+                document.getElementById('cart-count').textContent = count;
+            }
+
+            saveCart() {
+                localStorage.setItem('cart', JSON.stringify(this.cart));
+            }
+        }
+
+        new PerfumeShop();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Discover the story behind OnyxNMist, a leader in luxury fragrances. Meet our team of experts and read client testimonials. Discover our vision for crafting signature scents..">
+    <meta name="keywords"
+        content="OnyxNMist, luxury fragrances, about us, perfume team, fragrance testimonials, perfume brand story">
+    <meta name="author" content="OnyxNMist">
+    <title>About Us - OnyxNMist</title>
+    <link rel="canonical" href="https://www.onyxnmist.com/about-us">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          "name": "About Us - OnyxNMist",
+          "description": "Discover the story behind OnyxNMist, a leader in luxury fragrances.Meet our team of experts and read client testimonials. Discover our vision for crafting signature scents..",
+          "publisher": {
+            "@type": "Organization",
+            "name": "OnyxNMist",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://www.onyxnmist.com/logo.png"
+            }
+          },
+          "mainEntity": [
+            {
+              "@type": "Person",
+              "name": "Gojo Satoru",
+              "jobTitle": "Founder & CEO",
+              "description": "A visionary leader with a passion for creating unforgettable scents.",
+              "image": "https://www.onyxnmist.com/assets/images/Gojo.jpg",
+              "sameAs": [
+                "https://www.linkedin.com/in/raja-abdul-sami-4bb617328",
+                "https://www.instagram.com/itx_me_samiiiii/"
+              ]
+            },
+            {
+              "@type": "Person",
+              "name": "Muhammad Ashar",
+              "jobTitle": "Product Designer",
+              "description": "An expert in blending unique fragrances that captivate the senses.",
+              "image": "https://www.onyxnmist.com/assets/images/toji.jpg"
+            }
+          ]
+        }
+        </script>
+
+    <style>
+        /* CSS Variables */
+        :root {
+            --primary: #ff3c78;
+            --secondary: #ff1e5a;
+            --dark-1: #111;
+            --dark-2: #1a1a1a;
+            --dark-3: #262626;
+            --text: #fff;
+            --transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: var(--dark-1);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, rgba(3, 3, 3, 0.9), rgba(255, 60, 120, 0.8));
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            animation: slideDown 0.5s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+            }
+
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        nav {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Main Content */
+        .content {
+            margin-top: 6rem;
+            padding: 2rem 1.5rem;
+            flex: 1;
+            max-width: 1200px;
+            margin-inline: auto;
+        }
+
+        h1,
+        h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-weight: 700;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Team Section */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
+            perspective: 1000px;
+        }
+
+        .team-card {
+            background: var(--dark-2);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease-out forwards;
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+        }
+
+        .team-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            opacity: 0;
+            transition: var(--transition);
+            z-index: -1;
+        }
+
+        .team-card:hover::before {
+            opacity: 0.2;
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+            box-shadow: var(--shadow);
+        }
+
+        .team-card:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        .team-card:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .team-card:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
+        .team-card:nth-child(4) {
+            animation-delay: 0.8s;
+        }
+
+        .member-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            border: 3px solid var(--primary);
+            transition: var(--transition);
+            transform: translateZ(50px);
+        }
+
+        .team-card:hover .member-photo {
+            transform: scale(1.1) translateZ(60px);
+            border-color: var(--secondary);
+        }
+
+        .member-info {
+            margin-top: 1rem;
+        }
+
+        .member-info h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .member-info p {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .member-bio {
+            margin-top: 1rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: var(--transition);
+        }
+
+        .team-card:hover .member-bio {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: var(--transition);
+        }
+
+        .team-card:hover .social-links {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .social-link {
+            color: var(--text);
+            font-size: 1.4rem;
+            transition: var(--transition);
+            transform: translateZ(50px);
+        }
+
+        .social-link:hover {
+            color: var(--primary);
+            transform: translateY(-3px) scale(1.2) translateZ(60px);
+        }
+
+        /* Testimonials Section */
+        .testimonials-wrapper {
+            margin: 4rem 0;
+            position: relative;
+            min-height: 300px;
+        }
+
+        .testimonials-container {
+            position: relative;
+            height: 100%;
+        }
+
+        .testimonial-card {
+            background: var(--dark-2);
+            padding: 2rem;
+            border-radius: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: absolute;
+            width: 100%;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .testimonial-card.active {
+            opacity: 1;
+            transform: translateY(0);
+            z-index: 1;
+        }
+
+        .testimonial-text {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary);
+            text-align: right;
+        }
+
+        /* Testimonial Navigation Dots */
+        .testimonial-dots {
+            position: absolute;
+            bottom: -2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 0.8rem;
+            z-index: 2;
+        }
+
+        .testimonial-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .testimonial-dot.active {
+            background: var(--primary);
+            transform: scale(1.2);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, rgba(3, 3, 3, 0.9), rgba(255, 60, 120, 0.8));
+            padding: 2rem;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        @media (max-width: 768px) {
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .testimonial-card {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            /* Header adjustments */
+            header {
+                padding: 0.5rem 1rem;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            nav {
+                gap: 0.8rem;
+                font-size: 0.8rem;
+            }
+
+            nav a {
+                padding: 0.3rem 0;
+            }
+
+            /* Main content adjustments */
+            .content {
+                margin-top: 5rem;
+                padding: 1rem;
+            }
+
+            h1,
+            h2 {
+                font-size: 1.8rem;
+                margin-bottom: 1.5rem;
+            }
+
+            /* Team section adjustments */
+            .team-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .team-card {
+                padding: 1rem;
+            }
+
+            .member-photo {
+                width: 100px;
+                height: 100px;
+            }
+
+            .member-info h3 {
+                font-size: 1.2rem;
+            }
+
+            .member-info p {
+                font-size: 0.8rem;
+            }
+
+            .member-bio {
+                font-size: 0.9rem;
+            }
+
+            .social-links {
+                gap: 0.8rem;
+            }
+
+            .social-link {
+                font-size: 1.2rem;
+            }
+
+            /* Testimonials section adjustments */
+            .testimonials-wrapper {
+                margin: 2rem 0;
+            }
+
+            .testimonial-card {
+                padding: 1rem;
+            }
+
+            .testimonial-text {
+                font-size: 1rem;
+            }
+
+            .testimonial-author {
+                font-size: 0.9rem;
+            }
+
+            .testimonial-dots {
+                bottom: -1.5rem;
+            }
+
+            .testimonial-dot {
+                width: 10px;
+                height: 10px;
+            }
+
+            /* Footer adjustments */
+            footer {
+                padding: 1rem;
+            }
+
+            footer p {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">OnyxNMist</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="onyx-n-mist-perfume-shop.html">Shop</a>
+            <a href="onyx-n-mist-about-us.html">About</a>
+            <a href="onyx-n-mist-contact-us.html">Contact</a>
+            <a href="onyx-n-mist-cart.html">
+                <i class="fas fa-shopping-cart"></i>
+                <span id="cart-count">0</span>
+            </a>
+            <a href="onyx-n-mist-user-profile.html">
+                <i class="fas fa-user-circle"></i>
+            </a>
+        </nav>
+    </header>
+
+    <main class="content">
+        <h1>About Our Vision</h1>
+
+        <section class="team-section">
+            <h2>Creative Minds Behind the Scents</h2>
+            <div class="team-grid" id="teamContainer">
+                <!-- Team members will be inserted here -->
+            </div>
+        </section>
+
+        <section class="testimonials-wrapper">
+            <h2>Client Experiences</h2>
+            <div class="testimonials-container" id="testimonialsContainer">
+                <!-- Testimonials will be inserted here -->
+            </div>
+            <div class="testimonial-dots" id="testimonialDots"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 OnyxNMist. Crafting Signature Scents</p>
+    </footer>
+
+    <script>
+        // Team Members Data
+        const teamMembers = [
+            {
+                name: "Gojo Satoru",
+                role: "Founder & CEO",
+                image: "assets/images/Gojo.jpg",
+                bio: "A visionary leader with a passion for creating unforgettable scents.",
+                social: {
+                    twitter: "#",
+                    linkedin: "https://www.linkedin.com/in/raja-abdul-sami-4bb617328?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+                    instagram: "https://www.instagram.com/itx_me_samiiiii/"
+                }
+            },
+            {
+                name: "Muhammad Ashar",
+                role: "Product Designer",
+                image: "assets/images/toji.jpg",
+                bio: "An expert in blending unique fragrances that captivate the senses.",
+                social: {
+                    twitter: "#",
+                    linkedin: "#",
+                    instagram: "#"
+                }
+            },
+            {
+                name: "Abdullah Khan",
+                role: "Marketing Lead",
+                image: "assets/images/abdullah.jpg",
+                bio: "A creative strategist who brings our brand to life through innovative campaigns.",
+                social: {
+                    twitter: "#",
+                    linkedin: "#",
+                    instagram: "#"
+                }
+            },
+            {
+                name: "Zeeshan Ahmed",
+                role: "SEO Expert",
+                image: "assets/images/zeeshan.jpg",
+                bio: "A tech-savvy professional who ensures our brand reaches the right audience.",
+                social: {
+                    twitter: "#",
+                    linkedin: "#",
+                    instagram: "#"
+                }
+            }
+        ];
+
+        // Testimonials Data
+        const testimonials = [
+            {
+                text: "OnyxNMist has completely transformed my understanding of luxury fragrances. The depth and complexity of each scent is unparalleled.",
+                author: "Emma Wilson",
+                role: "Lifestyle Blogger"
+            },
+            {
+                text: "The attention to detail in every bottle is extraordinary. I've never experienced such consistently high-quality fragrances.",
+                author: "David Chen",
+                role: "Fragrance Critic"
+            },
+            {
+                text: "Every time I wear an OnyxNMist fragrance, I receive countless compliments. Truly masterful compositions.",
+                author: "Sarah Johnson",
+                role: "Fashion Influencer"
+            }
+        ];
+
+        // Render Team Members
+        function renderTeam() {
+            const container = document.getElementById('teamContainer');
+            container.innerHTML = teamMembers.map(member => `
+                <div class="team-card">
+                    <img src="${member.image}" class="member-photo" alt="${member.name}">
+                    <div class="member-info">
+                        <h3>${member.name}</h3>
+                        <p>${member.role}</p>
+                    </div>
+                    <div class="member-bio">
+                        <p>${member.bio}</p>
+                    </div>
+                    <div class="social-links">
+                        ${Object.entries(member.social).map(([platform, url]) => `
+                            <a href="${url}" class="social-link" target="_blank" aria-label="${platform}">
+                                <i class="fab fa-${platform}"></i>
+                            </a>
+                        `).join('')}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Testimonial Carousel System
+        class TestimonialCarousel {
+            constructor() {
+                this.currentIndex = 0;
+                this.testimonialContainer = document.getElementById('testimonialsContainer');
+                this.dotsContainer = document.getElementById('testimonialDots');
+                this.autoRotateInterval = null;
+                this.init();
+            }
+
+            init() {
+                this.renderTestimonials();
+                this.createDots();
+                this.showTestimonial(0);
+                this.startAutoRotate();
+                this.addEventListeners();
+            }
+
+            renderTestimonials() {
+                this.testimonialContainer.innerHTML = testimonials.map((testimonial, index) => `
+                    <div class="testimonial-card" data-index="${index}">
+                        <p class="testimonial-text">"${testimonial.text}"</p>
+                        <div class="testimonial-author">
+                            - ${testimonial.author}, ${testimonial.role}
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            createDots() {
+                this.dotsContainer.innerHTML = testimonials.map((_, index) => `
+                    <div class="testimonial-dot" data-index="${index}" aria-label="Testimonial ${index + 1}"></div>
+                `).join('');
+            }
+
+            showTestimonial(index) {
+                document.querySelectorAll('.testimonial-card').forEach(card => {
+                    card.classList.remove('active');
+                });
+
+                const targetCard = document.querySelector(`.testimonial-card[data-index="${index}"]`);
+                targetCard.classList.add('active');
+
+                document.querySelectorAll('.testimonial-dot').forEach(dot => {
+                    dot.classList.remove('active');
+                });
+                this.dotsContainer.children[index].classList.add('active');
+
+                this.currentIndex = index;
+            }
+
+            nextTestimonial() {
+                const nextIndex = (this.currentIndex + 1) % testimonials.length;
+                this.showTestimonial(nextIndex);
+            }
+
+            startAutoRotate() {
+                this.autoRotateInterval = setInterval(() => this.nextTestimonial(), 5000);
+            }
+
+            addEventListeners() {
+                this.dotsContainer.addEventListener('click', (e) => {
+                    const dot = e.target.closest('.testimonial-dot');
+                    if (dot) {
+                        clearInterval(this.autoRotateInterval);
+                        const index = parseInt(dot.dataset.index);
+                        this.showTestimonial(index);
+                        this.startAutoRotate();
+                    }
+                });
+
+                this.testimonialContainer.addEventListener('mouseenter', () => {
+                    clearInterval(this.autoRotateInterval);
+                });
+
+                this.testimonialContainer.addEventListener('mouseleave', () => {
+                    this.startAutoRotate();
+                });
+            }
+        }
+
+        // Initialize Everything
+        document.addEventListener('DOMContentLoaded', () => {
+            renderTeam();
+            new TestimonialCarousel();
+        });
+    </script>
+</body>
+
+</html>

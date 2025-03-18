@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="Thank you for your purchase at OnyxNMist! Your order has been confirmed and will be processed shortly.">
+    <title>Order Confirmation - OnyxNMist</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Order",
+        "orderNumber": "ONM-20231015-001",
+        "orderDate": "2025-01-01",
+        "priceCurrency": "USD",
+        "price": "149.99",
+        "acceptedOffer": [
+            {
+                "@type": "Product",
+                "name": "Premium Nebula Vaporizer",
+                "category": "Vaporizers",
+                "price": "89.99",
+                "quantity": 1
+            },
+            {
+                "@type": "Product",
+                "name": "Mystic Flavor Cartridge",
+                "category": "Consumables",
+                "price": "30.00",
+                "quantity": 2
+            }
+        ],
+        "url": "https://www.onyxnmist.com/order-confirmation",
+        "description": "Order confirmation for premium vaporizer products"
+    }
+    </script>
+    <style>
+        :root {
+            --primary-color: #ff3c78;
+            --background-gradient: linear-gradient(135deg, #111, #222);
+            --header-height: 70px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: var(--background-gradient);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background: linear-gradient(135deg, rgba(3, 3, 3, 0.9), rgba(255, 60, 120, 0.8));
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: var(--header-height);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 700;
+            color: var(--primary-color);
+            position: relative;
+            text-decoration: none;
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: var(--primary-color);
+            bottom: -5px;
+            left: 0;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover::after {
+            transform: scaleX(1);
+        }
+
+        nav {
+            display: flex;
+            gap: clamp(15px, 3vw, 25px);
+            align-items: center;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .confirmation-container {
+            padding: calc(var(--header-height) + 2rem) 5% 4rem;
+            max-width: 800px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .order-details {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .order-meta {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .meta-item strong {
+            color: var(--primary-color);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .order-items {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1.5rem;
+        }
+
+        .order-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .order-total {
+            font-size: 1.25rem;
+            font-weight: bold;
+            text-align: right;
+            padding: 1.5rem 0;
+            color: var(--primary-color);
+        }
+
+        .support-notice {
+            background: rgba(255, 60, 120, 0.1);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 3%;
+            }
+
+            nav {
+                gap: 12px;
+            }
+
+            .confirmation-container {
+                padding: calc(var(--header-height) + 1rem) 3% 2rem;
+            }
+
+            .order-meta {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo span {
+                display: none;
+            }
+
+            .nav-link {
+                font-size: 0.9rem;
+            }
+
+            .order-item {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="/" class="logo">Onyx<span>NMist</span></a>
+        <nav aria-label="Main navigation">
+            <a href="onyx-n-mist-perfume-shop.html" class="nav-link" aria-label="Return to shop">Shop</a>
+            <a href="onyx-n-mist-contact-us.html" class="nav-link" aria-label="Contact support">Support</a>
+            <a href="onyx-n-mist-user-profile.html" class="nav-link" aria-label="View profile">
+                <i class="fas fa-user-circle"></i>
+            </a>
+        </nav>
+    </header>
+
+    <main class="confirmation-container">
+        <h1>Order Confirmed 🎉</h1>
+        
+        <div class="order-details">
+            <div class="order-meta">
+                <div class="meta-item">
+                    <strong>Order Number</strong>
+                    <span id="order-number">ONM-20231015-001</span>
+                </div>
+                <div class="meta-item">
+                    <strong>Order Date</strong>
+                    <span id="order-date">January 1, 2025</span>
+                </div>
+                <div class="meta-item">
+                    <strong>Estimated Delivery</strong>
+                    <span id="delivery-date">January 5, 2025</span>
+                </div>
+            </div>
+
+            <div class="order-items" id="order-items"></div>
+            <div class="order-total" id="order-total">Total: $149.99</div>
+        </div>
+
+        <div class="support-notice">
+            <p>Need help with your order?<br>
+            Contact our support team at <a href="mailto:support@onyxnmist.com" style="color: var(--primary-color);">support@onyxnmist.com</a></p>
+        </div>
+    </main>
+
+    <script>
+        // Enhanced order handling with sessionStorage
+        document.addEventListener('DOMContentLoaded', () => {
+            const orderItems = JSON.parse(sessionStorage.getItem('orderData'));
+            
+            if (!orderItems || !orderItems.length) {
+                window.location.href = '/onyx-n-mist-cart.html';
+                return;
+            }
+
+            const renderOrderItems = () => {
+                const container = document.getElementById('order-items');
+                let total = 0;
+
+                container.innerHTML = orderItems.map(item => `
+                    <div class="order-item">
+                        <div>
+                            <div>${item.name}</div>
+                            <small>SKU: ${item.sku || 'N/A'}</small>
+                        </div>
+                        <div>
+                            $${item.price.toFixed(2)} × ${item.quantity}
+                        </div>
+                    </div>
+                `).join('');
+
+                total = orderItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+                document.getElementById('order-total').textContent = `Total: $${total.toFixed(2)}`;
+            };
+
+            renderOrderItems();
+            
+            // Clear temporary order data
+            sessionStorage.removeItem('orderData');
+            
+            // Simulated server-side tracking
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(() => console.log('Service Worker registered for offline tracking'));
+            }
+        });
+    </script>
+</body>
+</html>

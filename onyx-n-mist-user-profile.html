@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OnyxNMist - Profile</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Body Styling */
+        body {
+            background: linear-gradient(135deg, #111, #222);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+            padding: 20px;
+        }
+
+        /* Container */
+        .container {
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 20px;
+            box-shadow: 0px 0px 30px rgba(255, 255, 255, 0.1);
+            width: 100%;
+            max-width: 600px;
+            padding: 40px;
+            text-align: center;
+            animation: fadeIn 1.5s ease-in-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Glow Effect */
+        .container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 60, 120, 0.3), transparent 70%);
+            animation: rotateGlow 10s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes rotateGlow {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Heading */
+        h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #ff3c78;
+            animation: slideInDown 1s ease-in-out;
+        }
+
+        /* Profile Picture */
+        .profile-picture {
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+            animation: zoomIn 1s ease-in-out;
+        }
+
+        .profile-picture img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border: 4px solid #ff3c78;
+            cursor: pointer;
+            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .profile-picture img:hover {
+            transform: scale(1.1);
+            border-color: #ff1e5a;
+            box-shadow: 0px 0px 20px rgba(255, 60, 120, 0.6);
+        }
+
+        .profile-picture input[type="file"] {
+            display: none;
+        }
+
+        .profile-picture label {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: #ff3c78;
+            color: white;
+            border-radius: 50%;
+            padding: 12px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            box-shadow: 0px 0px 15px rgba(255, 60, 120, 0.5);
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .profile-picture label:hover {
+            background: #ff1e5a;
+            transform: scale(1.1);
+        }
+
+        .profile-picture label i {
+            font-size: 20px;
+        }
+
+        /* Form Styling */
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 5px;
+            color: #ccc;
+        }
+
+        input {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            padding: 12px 15px;
+            width: 100%;
+            border-radius: 8px;
+            color: white;
+            font-size: 14px;
+            transition: background 0.3s, box-shadow 0.3s, transform 0.3s;
+        }
+
+        input:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0px 0px 15px rgba(255, 60, 120, 0.5);
+            transform: scale(1.02);
+        }
+
+        input[readonly] {
+            background: rgba(255, 255, 255, 0.05);
+            cursor: not-allowed;
+        }
+
+        /* Button Styling */
+        button {
+            background: linear-gradient(135deg, #ff3c78, #ff1e5a);
+            color: white;
+            border: none;
+            padding: 14px 30px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-top: 20px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300%;
+            height: 300%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent 70%);
+            transform: translate(-50%, -50%) scale(0);
+            transition: transform 0.5s ease;
+            z-index: 0;
+        }
+
+        button:hover::before {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        button span {
+            position: relative;
+            z-index: 1;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 0px 20px rgba(255, 60, 120, 0.8);
+        }
+
+        /* Error Message */
+        .error-message {
+            color: #ff3c78;
+            font-size: 12px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        /* Footer */
+        footer {
+            position: fixed;
+            bottom: 20px;
+            font-size: 14px;
+            color: #aaa;
+            text-align: center;
+            width: 100%;
+        }
+
+        footer i {
+            color: #ff3c78;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            .profile-picture img {
+                width: 120px;
+                height: 120px;
+            }
+
+            .profile-picture label {
+                width: 40px;
+                height: 40px;
+                padding: 10px;
+            }
+
+            .profile-picture label i {
+                font-size: 18px;
+            }
+
+            input {
+                padding: 10px 12px;
+                font-size: 13px;
+            }
+
+            button {
+                padding: 12px 20px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>User Profile</h1>
+        <div class="profile-picture">
+            <img src="profile-pic-placeholder.png" alt="Profile Picture" id="profilePic">
+            <label for="profileUpload"><i class="fas fa-camera"></i></label>
+            <input type="file" id="profileUpload" accept="image/*">
+        </div>
+        <form id="profileForm">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" placeholder="Enter your name" readonly />
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Enter your email" readonly />
+            </div>
+            <div class="form-group">
+                <label for="password">New Password</label>
+                <input type="password" id="password" placeholder="Enter new password" />
+            </div>
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" id="confirmPassword" placeholder="Confirm new password" />
+                <div class="error-message" id="passwordError">Passwords do not match!</div>
+            </div>
+            <button type="submit"><span>Save Changes</span></button>
+        </form>
+    </div>
+    <footer>
+        <p>Created with <i class="fa fa-heart"></i> by OnyxNMist</p>
+    </footer>
+
+    <script>
+        // Simulated user data
+        const userData = {
+            name: "Gojo Satoru",
+            email: "ra.sami.dev@gmail.com",
+            joined: "2023-01-01",
+            profilePicture: "assets/images/Gojo.jpg" // Placeholder for the profile picture
+        };
+
+        // Load user data on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            const user = JSON.parse(localStorage.getItem('currentUser')) || userData;
+            
+            document.getElementById('name').value = user.name;
+            document.getElementById('email').value = user.email;
+            
+            // Load profile picture
+            const storedProfilePic = localStorage.getItem('profilePic');
+            if (storedProfilePic) {
+                document.getElementById('profilePic').src = storedProfilePic;
+            }
+        });
+
+        // Handle profile picture upload
+        document.getElementById('profileUpload').addEventListener('change', (event) => {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    // Update image display
+                    document.getElementById('profilePic').src = e.target.result;
+                    
+                    // Store in localStorage
+                    localStorage.setItem('profilePic', e.target.result);
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Handle form submission
+        document.getElementById('profileForm').addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            // Validate passwords
+            if (password !== confirmPassword) {
+                document.getElementById('passwordError').style.display = 'block';
+                return;
+            } else {
+                document.getElementById('passwordError').style.display = 'none';
+            }
+
+            // Simulate saving changes
+            console.log('Profile updated:', { password });
+            alert('Profile updated successfully!');
+
+            // Redirect to home.html
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+</html>
